@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NetSim · The bus and the clock</title>
+<link rel="stylesheet" href="/live.css">
+</head>
+<body class="teach">
+<header class="hero"><div class="wrap">
+  <p class="tag">NetSim · In class · Instructor</p>
+  <h1 data-title>In-class exercise</h1>
+  <p class="status-line"><span class="pill" data-phase>Connecting…</span> <span class="muted-light" data-conn></span></p>
+  <p class="muted-light">Students: <span class="mono" data-live-url></span></p>
+</div></header>
+
+<main class="wrap">
+  <section class="card" data-denied hidden>
+    <h2>Open this page from the link in the terminal</h2>
+    <p>The instructor link carries a token (after <code>#t=</code>) and only works on the computer running the server.</p>
+  </section>
+
+  <div data-room hidden class="split">
+  <aside class="card viz-card" aria-label="The machine, live">
+    <h2>The machine</h2>
+    <svg class="viz" data-viz></svg>
+    <p class="viz-key"><span class="k ok">delivered</span> <span class="k bad">dropped</span> <span class="k wait">at the bus</span> <span class="k me">you</span></p>
+  </aside>
+  <div class="room">
+    <section class="card rules"><h2>The rules</h2><div data-rules></div></section>
+
+    <section class="card clock">
+      <h2>The clock</h2>
+      <p data-waiting class="muted"></p>
+      <div class="row">
+        <button class="btn primary" data-tick>Start tick 1</button>
+        <button class="btn" data-force hidden>Start the next tick anyway</button>
+      </div>
+      <p class="error" data-error role="alert"></p>
+    </section>
+
+    <section class="card">
+      <h2>The bus: waiting to be delivered</h2>
+      <ul class="list queue" data-queue></ul>
+    </section>
+
+    <div class="cols">
+      <section class="card">
+        <h2>The class</h2>
+        <div class="row"><button class="btn" data-auto>Fill empty roles</button><label class="check"><input type="checkbox" data-lock> No new people</label></div>
+        <ul class="list seats" data-seats></ul>
+      </section>
+      <section class="card">
+        <h2>Private information</h2>
+        <ul class="list" data-secrets></ul>
+        <h2>Roles</h2>
+        <ul class="cast" data-cast></ul>
+      </section>
+    </div>
+
+    <div class="cols">
+      <section class="card">
+        <h2>Timeline</h2>
+        <ol class="timeline" data-timeline></ol>
+      </section>
+      <section class="card">
+        <h2>Notes from the class</h2>
+        <ul class="list notes" data-notes></ul>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Every message</h2>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>Sent</th><th>Message</th><th>For</th><th>Bus</th></tr></thead><tbody data-messages></tbody></table></div>
+    </section>
+
+    <section class="card reset">
+      <h2>Reset</h2>
+      <p class="muted">Start again without restarting the server. Nothing is written; an export already made stays as it was.</p>
+      <div class="row">
+        <button class="btn" data-reset="restart">Restart the exercise</button>
+        <button class="btn danger" data-reset="clear">Clear everyone</button>
+      </div>
+      <p class="hint"><b>Restart the exercise:</b> back to waiting for tick 1, with no messages, timeline, notes, done or reveals; everyone keeps their seat and role. <b>Clear everyone:</b> the same, and everyone is removed, so they join again from the link.</p>
+    </section>
+
+    <section class="card end">
+      <h2>End and export</h2>
+      <p>Ends the session for everyone and writes it to the exports folder (<code>exports/</code> unless you chose another): the data, a replay page anyone can open, and an index of the week's sessions.</p>
+      <div class="row"><button class="btn danger" data-end>End and export</button></div>
+      <p data-exported></p>
+    </section>
+
+  </div>
+</div>
+</main>
+<script src="/common.js"></script>
+<script src="/instructor.js"></script>
+</body>
+</html>

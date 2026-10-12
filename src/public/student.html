@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NetSim · In class</title>
+<link rel="stylesheet" href="/live.css">
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <p class="tag">NetSim · In class</p>
+  <h1 data-title>In-class exercise</h1>
+  <p class="status-line"><span class="pill" data-phase>Connecting…</span> <span class="muted-light" data-conn></span></p>
+</div></header>
+
+<main class="wrap">
+  <section class="card" data-join hidden>
+    <h2>Join the class</h2>
+    <p>Type the name the class knows you by. The instructor gives out the roles; everyone else watches and notes what goes wrong.</p>
+    <form data-join-form class="row">
+      <label class="field grow"><span>Your name</span><input name="name" maxlength="24" autocomplete="nickname" required></label>
+      <button class="btn primary" type="submit">Join</button>
+    </form>
+    <p class="muted">Your name and what you send or note here go into the class's record of the exercise, which the instructor may share afterwards. A first name or a nickname is fine.</p>
+    <p class="error" data-join-error role="alert"></p>
+  </section>
+
+  <div data-room hidden class="split">
+  <aside class="card viz-card" aria-label="The machine, live">
+    <h2>The machine</h2>
+    <svg class="viz" data-viz></svg>
+    <p class="viz-key"><span class="k ok">delivered</span> <span class="k bad">dropped</span> <span class="k wait">at the bus</span> <span class="k me">you</span></p>
+  </aside>
+  <div class="room">
+    <section class="card me" data-me></section>
+
+    <section class="card rules"><h2>The rules</h2><div data-rules></div></section>
+
+    <section class="card" data-send-card hidden>
+      <h2>Send to the bus</h2>
+      <form data-send class="send" novalidate>
+        <div class="field">
+          <label for="f-kind">message</label>
+          <select id="f-kind" name="kind"></select>
+          <small class="hint" data-hint="kind"></small><small class="bad-msg" data-err="kind"></small>
+        </div>
+        <div class="field" data-arg-field hidden>
+          <label for="f-arg" data-arg-name>value</label>
+          <select id="f-arg" name="arg"></select>
+          <small class="hint" data-hint="arg"></small><small class="bad-msg" data-err="arg"></small>
+        </div>
+        <div class="field" data-reply-field hidden>
+          <label for="f-reply">replyTo</label>
+          <select id="f-reply" name="replyTo"></select>
+          <small class="hint" data-hint="replyTo"></small><small class="bad-msg" data-err="replyTo"></small>
+        </div>
+        <div class="field">
+          <label for="f-to">to</label>
+          <p class="goes" data-to-text></p>
+          <select id="f-to" name="to" hidden></select>
+          <small class="hint" data-hint="to"></small><small class="bad-msg" data-err="to"></small>
+        </div>
+        <div class="field">
+          <label for="f-id">id</label>
+          <input id="f-id" name="id" maxlength="16" autocomplete="off" spellcheck="false">
+          <small class="hint" data-hint="id"></small><small class="bad-msg" data-err="id"></small>
+        </div>
+        <p class="preview wide"><span class="muted">It will read:</span> <code data-preview></code></p>
+        <div class="row wide"><button class="btn primary" type="submit" data-send-btn>Send to the bus</button><button class="btn" type="button" data-done>Done for this tick</button></div>
+      </form>
+      <p class="error" data-send-error role="alert"></p>
+    </section>
+
+    <div class="cols">
+      <section class="card" data-inbox-card hidden>
+        <h2>Your inbox</h2>
+        <ul class="list" data-inbox></ul>
+        <h3>What you sent</h3>
+        <ul class="list" data-sent></ul>
+      </section>
+      <section class="card">
+        <h2>Timeline</h2>
+        <p class="muted">What the bus delivered or dropped, for everyone to see.</p>
+        <ol class="timeline" data-timeline></ol>
+      </section>
+    </div>
+
+    <div class="cols">
+      <section class="card">
+        <h2>Who's playing</h2>
+        <ul class="cast" data-cast></ul>
+      </section>
+      <section class="card">
+        <h2>What went wrong?</h2>
+        <form data-note class="row">
+          <label class="field grow"><span>Your note</span><input name="text" maxlength="280" autocomplete="off" placeholder="CPU-2 used the reply before the next tick"></label>
+          <button class="btn" type="submit">Post</button>
+        </form>
+        <p class="error" data-note-error role="alert"></p>
+        <ul class="list notes" data-notes></ul>
+      </section>
+    </div>
+
+  </div>
+</div>
+</main>
+<script src="/common.js"></script>
+<script src="/student.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* The live exercise pages, in NetSim's look: the lesson pages' green hero over the course app's
+   panels, fields and buttons, with the same colour tokens. */
+:root{
+  --red:#f4061e;--green:#173627;--green-2:#20483a;--mint:#5fc79a;--yellow:#ffcb12;--grey:#d3dbdc;
+  --ink:#16201b;--muted:#5b6660;--line:#d9e0dd;--panel:#fff;--well:#f1f4f3;--mint-ink:#1b7650;--red-ink:#c4051a;
+  --chrome-ink:#d6ebe0;--chrome-muted:#8fb3a1;--ok-bg:#dcf3e8;--bad-bg:#ffe1e4;--now-bg:#fff1c2;--now-ink:#6b5200;--hover:#f7f9f8;--shadow:#16201b;
+  color-scheme:light
+}
+@media (prefers-color-scheme:dark){:root{
+  --ink:#e8efeb;--muted:#9aa8a0;--line:#26312b;--panel:#121a16;--well:#0f1512;--mint-ink:#6fd3a7;--red-ink:#ff5a67;
+  --ok-bg:#16352a;--bad-bg:#3a1519;--now-bg:#3a3010;--now-ink:#ffdb6e;--hover:#18221d;--shadow:#000;color-scheme:dark
+}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--well);color:var(--ink);font:15px/1.5 "Inter","Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{margin:0;font-family:"Bricolage Grotesque","Inter",system-ui,sans-serif;line-height:1.15;text-wrap:balance}
+h2{font-size:20px;font-weight:700}
+h3{font:600 12px/1 "Inter",sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+p{margin:0}
+a{color:var(--mint-ink);text-underline-offset:3px}
+code,pre,.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+code{background:var(--well);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:.88em;overflow-wrap:anywhere}
+pre{background:var(--well);border:1px solid var(--line);border-radius:8px;padding:10px 14px;overflow-x:auto;margin:8px 0;font-size:13px;line-height:1.6}
+pre code{background:none;border:0;padding:0}
+[hidden]{display:none!important}
+
+/* The lesson pages' hero, sized for a working page. */
+.hero{background:var(--green);color:#fff;padding-block:26px 22px}
+.hero .wrap{display:grid;gap:8px}
+.tag{font:700 13px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:#a8e3c8}
+.hero h1{font-size:clamp(26px,5vw,40px);font-weight:800;letter-spacing:-.02em}
+.muted-light{color:var(--chrome-ink);font-size:14px;overflow-wrap:anywhere}
+.pill{display:inline-flex;font:600 12px/1 "Inter",sans-serif;padding:6px 10px;border-radius:999px;background:var(--yellow);color:#16201b}
+
+/* Panels. */
+main{padding-block:16px 60px}
+.room{display:grid;gap:14px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cols>[hidden]+.card{grid-column:1/-1}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:10px;min-width:0;align-content:start}
+details.card>summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--muted)}
+details.card[open]>summary{margin-bottom:4px}
+.eyebrow{font:600 12px/1 "Inter",sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.me h2{font-size:28px}
+.secret{background:var(--now-bg);color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:10px 14px}
+.wait{color:var(--muted);font-style:italic}
+.muted{color:var(--muted);font-size:14px}
+
+/* Fields. */
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.row.inline{display:inline-flex;gap:8px;margin-left:8px;align-items:center}
+.grow{flex:1 1 220px}
+.field{display:grid;gap:5px;font-weight:600;font-size:14px;min-width:0}
+.field em{font-style:normal;font-weight:400;color:var(--muted)}
+input,select{font:16px/1.3 "Inter",sans-serif;color:var(--ink);background:var(--panel);border:2px solid var(--ink);border-radius:8px;padding:9px 12px;min-width:0;width:100%}
+input:focus,select:focus{outline:3px solid var(--mint);outline-offset:0}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.send{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 12px;align-items:start}
+.send .wide{grid-column:1/-1}
+.check{display:flex;gap:8px;align-items:center;font-weight:600;font-size:14px}
+.check input{width:auto;accent-color:var(--green)}
+
+/* Buttons: .btn, .btn.primary, .btn.ghost, .btn.danger, .btn.small. */
+.btn{font:600 14.5px/1 "Inter",sans-serif;padding:11px 16px;border-radius:8px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);cursor:pointer;display:inline-flex;gap:10px;align-items:center;text-decoration:none}
+.btn:hover{background:var(--well)}
+.btn.primary{background:var(--yellow);color:#16201b;box-shadow:3px 3px 0 var(--shadow)}
+.btn.primary:hover{background:#ffd84a}
+.btn.primary:active{box-shadow:1px 1px 0 var(--shadow);transform:translate(2px,2px)}
+.btn.danger{background:var(--red);color:#fff;box-shadow:3px 3px 0 var(--shadow)}
+.btn.danger:hover{background:#d90519}
+.btn.danger:active{box-shadow:1px 1px 0 var(--shadow);transform:translate(2px,2px)}
+.btn.ghost{border-color:var(--line);font-weight:500}
+.btn.small{font-size:13px;padding:7px 11px}
+.btn.primary.small,.btn.danger.small{box-shadow:2px 2px 0 var(--shadow)}
+.btn:disabled,.btn:disabled:hover{opacity:.45;cursor:not-allowed;background:var(--panel);box-shadow:none;transform:none}
+.btn.primary:disabled{background:var(--yellow)}
+
+.error{color:var(--red-ink);font-weight:600;font-size:14px}
+.error:empty{display:none}
+.warn{color:var(--red-ink);font-size:13.5px;font-weight:600}
+
+/* Lists, the timeline and tags. */
+.list,.cast,.timeline{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.timeline,.notes{max-height:420px;overflow-y:auto}
+.timeline li,.list li{overflow-wrap:anywhere}
+.tl-tick{font:700 11px/1.3 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:4px}
+.badge{display:inline-flex;font:600 12px/1.4 "Inter",sans-serif;border-radius:999px;padding:2px 9px;margin-right:6px;background:var(--well);color:var(--muted)}
+.b-delivered{background:var(--ok-bg);color:var(--mint-ink)}
+.b-dropped{background:var(--bad-bg);color:var(--red-ink)}
+.b-pending{background:var(--now-bg);color:var(--now-ink)}
+.chip{display:inline-flex;font:600 12px/1.4 "Inter",sans-serif;border-radius:999px;padding:2px 9px;margin-left:8px;background:var(--well);color:var(--muted)}
+.cast li.done .chip{background:var(--ok-bg);color:var(--mint-ink)}
+.seat{display:grid;grid-template-columns:minmax(0,1fr) 150px auto;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.seat select{padding:6px 8px;border-width:1.5px;font-size:14px}
+.queued{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel)}
+.queued:hover{background:var(--hover)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:6px 10px;border-bottom:1px solid var(--line)}
+th{font:600 11.5px/1.2 "Inter",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){.cols{grid-template-columns:1fr}.send{grid-template-columns:1fr}.seat{grid-template-columns:1fr 1fr}.seat b{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important}}
+
+/* The guided send form: a plain-words hint under every field, and what's wrong in red. */
+.field>label{font-weight:600}
+.hint{display:block;font-weight:400;font-size:13px;line-height:1.4;color:var(--muted)}
+.bad-msg{display:block;font-weight:600;font-size:13px;line-height:1.4;color:var(--red-ink)}
+.bad-msg:empty{display:none}
+.field.bad input,.field.bad select{border-color:var(--red);outline-color:var(--red);background:var(--bad-bg)}
+.goes{display:flex;gap:6px 10px;align-items:baseline;flex-wrap:wrap;min-height:43px;padding:10px 0 0;margin:0;font-weight:400}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--mint-ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.preview{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:0}
+.rules ul{margin:0;padding-left:22px;display:grid;gap:4px}
+
+/* Work on the left, the machine on the right, in view while you type; stacked on narrow screens. */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,520px);gap:14px;align-items:start}
+.split>.viz-card{grid-column:2;grid-row:1;position:sticky;top:12px}
+.split>.room{grid-column:1;grid-row:1}
+.viz{display:block;width:100%;height:auto}
+.viz-key{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.viz-key .k::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--grey)}
+.viz-key .ok::before{background:var(--mint)}.viz-key .bad::before{background:var(--red)}.viz-key .wait::before{background:var(--yellow)}.viz-key .me::before{background:none;border:2px solid var(--mint)}
+.viz text{font-family:"Inter","Segoe UI",system-ui,sans-serif;fill:var(--ink)}
+.viz-bus{fill:var(--green)}
+.viz-bus-label{font:600 13px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;fill:var(--muted)!important}
+.viz-clock rect{fill:var(--yellow);stroke:var(--shadow);stroke-width:2}
+.viz-clock text{font:700 16px "Inter",sans-serif;fill:#16201b!important}
+.viz-clock.lobby rect,.viz-clock.ended rect{fill:var(--grey)}
+.viz-stub{stroke:var(--green);stroke-width:4}
+.viz-box{fill:var(--panel);stroke:var(--ink);stroke-width:2}
+.viz-label{font:700 21px "Bricolage Grotesque","Inter",sans-serif}
+.viz-name{font-size:16px;fill:var(--muted)!important}
+.viz-state{font:600 14px "Inter",sans-serif}
+.viz-part.done .viz-box{fill:var(--ok-bg)}.viz-part.done .viz-state{fill:var(--mint-ink)}
+.viz-part.working .viz-box{fill:var(--now-bg)}.viz-part.working .viz-state{fill:var(--now-ink)}
+.viz-part.empty .viz-box{stroke:var(--line);stroke-dasharray:6 5}.viz-part.empty .viz-state,.viz-part.empty .viz-label{fill:var(--muted)}
+.viz-part.me .viz-box{stroke:var(--mint);stroke-width:4}
+.viz-you rect{fill:var(--mint);stroke:var(--shadow);stroke-width:1.5}.viz-you text{font:700 12px "Inter",sans-serif;fill:#173627!important}
+.viz-wait rect{fill:var(--yellow);stroke:var(--shadow);stroke-width:1.5}.viz-wait text{font:600 13px "JetBrains Mono",monospace;fill:#16201b!important}
+.viz-wait-label{font-size:13px;fill:var(--muted)!important}
+.viz-fly rect{stroke:var(--shadow);stroke-width:1.5}.viz-fly text{font:700 13px "JetBrains Mono",monospace;fill:#16201b!important}
+.viz-fly.ok rect{fill:var(--mint)}.viz-fly.bad rect{fill:var(--red)}.viz-fly.bad text{fill:#fff!important}
+@media (max-width:1180px){.split .cols{grid-template-columns:1fr}.send{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.split{grid-template-columns:1fr}.split>.viz-card,.split>.room{grid-column:1;grid-row:auto}.split>.viz-card{position:static}}
+
+/* The note a student sees after the instructor resets the exercise. */
+.restarted{background:var(--now-bg);color:var(--ink);border:2px solid var(--ink);border-radius:10px;padding:10px 14px}

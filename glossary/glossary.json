@@ -1,0 +1,30 @@
+{
+  "note": "The terms the exercise pages explain with a popover (src/glossary.ts). Add a term here and name it in an exercise's glossary list.",
+  "terms": {
+    "tick": {
+      "match": [
+        "tick"
+      ],
+      "explain": "One step of the shared clock. Every part does its work for the tick and tells the bus it's done; only then does the next tick start."
+    },
+    "replyTo": {
+      "code": true,
+      "match": [
+        "replyTo"
+      ],
+      "explain": "On a reply, the id of the request it answers. It's how a requester matches each reply to its request, like a ticket number."
+    },
+    "fault": {
+      "match": [
+        "fault"
+      ],
+      "explain": "A reply that says a request failed and why, for example OUT_OF_RANGE for an address memory doesn't have. It replaces the normal reply, so the asker always hears back."
+    },
+    "envelope": {
+      "match": [
+        "envelope"
+      ],
+      "explain": "The fields every NetSim message carries around its contents: type, from, to, id, replyTo and tick. The bus delivers by the envelope and never looks inside."
+    }
+  }
+}
